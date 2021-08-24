@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.seyeong.musicplaylist.databinding.ActivityMainBinding
 
@@ -33,6 +35,9 @@ class MainActivity : BaseActivity() {
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+
+        var decoration = DividerItemDecoration(this, VERTICAL) // 리사이클러뷰에 기본형 Divider를 넣는것
+        binding.recyclerView.addItemDecoration(decoration)
     }
 
     fun getMusicList(): List<Music> { // 음원을 읽어오는 getMusicList() 메서드
